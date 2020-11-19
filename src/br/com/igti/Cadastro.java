@@ -35,6 +35,7 @@ public class Cadastro {
 				System.out.println("Digite o indice do funcionário que deseja imprimir o contracheque\n");
 				int i = entradaInt.nextInt();
 				boolean mensagem = true;
+				
 				for (Funcionario ff : lista) {
 					if (ff.getId() == i) {
 						calculoSalario(ff);
@@ -42,7 +43,7 @@ public class Cadastro {
 					}
 				}
 				if (mensagem) {
-					System.out.println("O funcionário com ID " + i + " não existe no banco de dados");
+					System.out.println("O funcionário com ID: " + i + " não existe no banco de dados");
 				}
 				mostrarMenu();
 				opcao = entrada.nextLine();
@@ -54,16 +55,18 @@ public class Cadastro {
 				opcao = entrada.nextLine();
 			}
 		}
+		System.out.println("Obrigado, volte sempre ! ");
 		entrada.close();
+		entradaInt.close();
 	}
 
 	private void mostrarMenu() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Digite o comando desejado: \n");
-		sb.append("1 - Cadastrar Funcionário \n");
-		sb.append("2 - Imprimir contracheque \n");
-		sb.append("3 - Sair \n");
-		System.out.println(sb.toString());
+		StringBuilder menu = new StringBuilder();
+		menu.append("Bem vindo, digite uma das opções:\n");
+		menu.append("1 - Para cadastrar um funcionário\n");
+		menu.append("2 - Para imprimir o salário e tributos dos funcionários cadastrados\n");
+		menu.append("3 - Para sair do programa\n");
+		System.out.println(menu.toString());
 	}
 
 	private void calculoSalario(Funcionario f) {
